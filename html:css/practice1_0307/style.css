@@ -115,11 +115,9 @@ main .text ul li a {}
 /* footer ================================ */
 
 footer {
-   /* vp 기준 */
    position: absolute;
-   bottom: 3vh;
    width: 100%;
+   bottom: 3vh;
    text-align: center;
-   letter-spacing: 6px;
-
+   letter-spacing: 2px;
 }
