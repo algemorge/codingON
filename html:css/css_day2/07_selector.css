@@ -1,0 +1,69 @@
+/* .div {
+   background-color: pink;
+   font-size: 20px;
+   font-weight: 900;
+}
+
+
+.div::after {
+   content: " After";
+   color: white;
+}
+
+.div:hover::after {
+   content: "앞";
+   color: white;
+}
+
+.div::before {
+   content: "";
+   background-color: red;
+   display: inline-block;
+   width: 10px;
+   height: 20px;
+} */
+
+
+/* ======================= */
+
+.box::before {
+   content: "택시";
+}
+
+.box::after {
+   content: "빨리";
+}
+
+/* ======================= */
+
+/* [disabled] {
+   background-color: red;
+}
+
+[placeholder] {
+   background-color: yellow;
+}
+
+[type='password'] {
+   background-color: pink;
+}
+
+[class=square] {
+   width: 30px;
+   height: 30px;
+   background-color: teal;
+} */
+
+/* ======================= */
+
+[disabled] {
+   background-color: red;
+}
+
+[placeholder="이름"] {
+   background-color: orange;
+}
+
+input:not(placeholder) {
+   background-color: blue;
+}

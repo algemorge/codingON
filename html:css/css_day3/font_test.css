@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+
+@font-face {
+   font-family: 'SEBANG_Gothic_Bold';
+   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+}
+
+.one {
+   font-family: 'Single Day', 'SEBANG_Gothic_Bold', cursive;
+}
+
+.two {
+   font-family: 'SEBANG_Gothic_Bold', serif;
+
+}

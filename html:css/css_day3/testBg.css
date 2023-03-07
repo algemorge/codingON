@@ -1,0 +1,26 @@
+.sk {
+   width: 800px;
+   height: 500px;
+   background-color: skyblue;
+   border: 1px solid black;
+   background-image: url("./img/lion2.png");
+}
+
+/* 크기유지, 수직중앙, X축으로만 반복(repeat-x) */
+.s1 {
+   background-repeat: repeat-x;
+   background-position: center;
+   background-size: auto;
+}
+
+/* 이미지를 짧은축에 맞추기(background-size:contain) left 100px top 30px 띄우기*/
+.s2 {
+   background-size: contain;
+   background-position: 100px 30px;
+}
+
+/* 이미지를 넓은 축에 맞추기(cover) 포지션값 조정*/
+.s3 {
+   background-size: cover;
+   background-position: 30px 50px 80px;
+}

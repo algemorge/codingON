@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>form태그의 종류에 대해서 알아봅시다</form>
+   </title>
+</head>
+
+<body>
+   <!-- get/method 서버 측 -->
+   <form action="post">
+      <!-- label 과 input은 짝. label - 웹 접근성, 체크박스/라디오에 적합, label for = input id -->
+      <label for="textInput"> id : </label>
+      <input type="text" id="textInput">
+      <br>
+      <label for="pwd">password : </label>
+      <input type="password" id="pwd">
+      <br>
+      <!-- email 타입은 실제 제출할때 올바른 형식인지 확인함 -->
+      <label for="eml">email : </label>
+      <input type="email" placeholder="love@example.com" id="eml">
+      <br>
+      <label for="tarea">기타사항</label>
+      <br>
+      <textarea name="" id="tarea" cols="30" rows="10"></textarea>
+      <br>
+      <label for="num">number : </label>
+      <input type="number" id="num">
+      <Br></Br>
+      <label for="dt">날짜 : </label>
+      <input type="date" id="dt">
+      <hr>
+      <h5>다음중 input 타입이 아닌것을 모두 고르세요 </h5>
+      <label for="chbox"></label>
+      <!-- checkbox를 쓸때 한 묶음으로 만드는 name -->
+      <input type="checkbox" name="input"> 1. text
+      <input type="checkbox" name="input"> 2. img
+      <input type="checkbox" name="input"> 3. date
+      <input type="checkbox" name="input"> 4. bread
+      <input type="checkbox" name="input"> 5. click
+      <br>
+
+      <!-- input id = label for / 이제 글씨를 눌러도 라디오에 표시됨 -->
+      <!-- 선택불가 - disabled -->
+      <!-- 미리선택 - checked -->
+      <h5>다음중 img 태그의 속성인 것은?</h5>
+      <input type="radio" name="img" id="title" disabled> <label for="title">1. title</label>
+      <input type="radio" name="img" id="alt" checked> <label for="alt">2. alt</label>
+      <input type="radio" name="img" id="height"> <label for="height">3. height</label>
+      <input type="radio" name="img" id="value"> <label for="value">4. value</label>
+      <input type="radio" name="img" id="href"> <label for="href">5. href</label>
+      <br>
+
+      <!-- 버튼타입에는 value -->
+      <input type="button" value="버튼">
+      <!-- 버튼의 기능 : submit -->
+      <input type="submit" value="제출">
+      <!-- 버튼과 submit의 차이 : button은 스타일 변경 가능 -->
+      <input style="background-color: red;" type="button" value="버튼">
+
+      <hr>
+      <!-- select -->
+      <select name="flower" id="">
+         <!-- 빨강 / 하양 꽃 그룹짓기 -->
+         <optgroup label="redFlower">
+            <option value="">장미</option>
+            <option value="">동백</option>
+            <option value="">튤립</option>
+            <option value="">카네이션</option>
+         </optgroup>
+         <optgroup label="whiteFlower">
+            <option value="">벚꽃</option>
+            <option value="">목련</option>
+         </optgroup>
+      </select>
+
+
+   </form>
+</body>
+
+</html>
