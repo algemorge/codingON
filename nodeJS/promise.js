@@ -14,15 +14,15 @@
 // promise 함수의 return 값이 Promise 객체
 // - resolve(): 성공한 경우, 프로미스 사용시 then 메서드와 연결
 // - reject(): 실패한 경우, 프로시스 사용시 catch 메서드와 연결
-function promise1(flag) {
-   return new Promise(function (resolve, reject) {
-      if (flag) {
-         resolve(`promise 상태는 fulfilled! then 으로 연결됩니다 \n 이때의 flag는 ${flag} 입니다.`)
-      } else {
-         reject(`promise의 상태는 rejected!!! catch로 연결됩니다. \n 이때의 flag는 ${flag}입니다.`)
-      }
-   })
-}
+// function promise1(flag) {
+//    return new Promise(function (resolve, reject) {
+//       if (flag) {
+//          resolve(`promise 상태는 fulfilled! then 으로 연결됩니다 \n 이때의 flag는 ${flag} 입니다.`)
+//       } else {
+//          reject(`promise의 상태는 rejected!!! catch로 연결됩니다. \n 이때의 flag는 ${flag}입니다.`)
+//       }
+//    })
+// }
 
 // 2. 프로미스 사용(소비)코드
 // promise1() //true, false 넣을수 있음
@@ -118,49 +118,187 @@ function promise1(flag) {
 // 장점2 - 예외처리 간편
 // = 마지막에 catch 구문에서 한 번에 에러 처리 가능
 
-function add(n1, n2) {
+// function add(n1, n2) {
+//    return new Promise(function (resolve, reject) {
+//       setTimeout(function () {
+//          let result = n1 + n2;
+//          resolve(result);
+//       }, 1000)
+//    })
+// };
+// function mul(n) {
+//    return new Promise(function (resolve, reject) {
+//       setTimeout(function () {
+//          let result = n * 2;
+//          resolve(result)
+//       }, 700)
+//    })
+// }
+// function sub(n) {
+//    return new Promise(function (resolve, reject) {
+//       setTimeout(function () {
+//          let result = n - 1;
+//          // resolve(result)
+//          // 에러 테스트
+//          reject(new Error('의도적으로 에러 발생!!'));
+//       }, 500)
+//    })
+// }
+
+// add(4, 3)
+//    .then(function (result) {
+//       console.log(('1: ', result));
+//       return mul(result)
+//    })
+//    .then(function (result) {
+//       console.log(('2: ', result));
+//       return sub(result)
+//    })
+//    .then(function (result) {
+//       console.log(('3: ', result));
+//    })
+//    // promise chaining의 예외처리
+//    .catch(function (error) {
+//       console.log('실패!');
+//       console.log(error);
+//    })
+
+
+// ##########################################
+
+function call(name) {
    return new Promise(function (resolve, reject) {
       setTimeout(function () {
-         let result = n1 + n2;
-         resolve(result);
+         console.log(name);
+         resolve(name);// 작업 성공시 then (name)
       }, 1000)
    })
 };
-function mul(n) {
+function back() {
    return new Promise(function (resolve, reject) {
       setTimeout(function () {
-         let result = n * 2;
-         resolve(result)
-      }, 700)
+         console.log('back');
+         resolve('back');// 작업 성공시 then ('back')
+      }, 1000)
    })
 }
-function sub(n) {
+function hell() {
    return new Promise(function (resolve, reject) {
       setTimeout(function () {
-         let result = n - 1;
-         // resolve(result)
-         // 에러 테스트
-         reject(new Error('의도적으로 에러 발생!!'));
-      }, 500)
+         resolve('callback hell');
+      }, 1000)
    })
 }
 
-add(4, 3)
+// // call -> back -> hell 순서로 실행
+call('kim')
+   .then((name) => {
+      console.log(name, '반가워');
+      return back() // 177번줄 호출
+   })
+   .then((txt) => {
+      console.log((`${txt}을 실행했구나`));
+      return hell() //185번줄 호출
+   })
+   .then((msg) => {
+      console.log(msg);
+   })
+
+// ##########################################
+// 실습1 풀이
+
+// 기존 코드 
+// callback -> promise
+
+// function call(name, cb) {
+//    setTimeout(function () {
+//       console.log(name);
+//       cb(name);
+//    }, 1000);
+// }
+
+// function back(cb) {
+//    setTimeout(function () {
+//       console.log('back');
+//       cb('back');
+//    }, 1000);
+// }
+
+// function hell(cb) {
+//    setTimeout(function () {
+//       cb('callback hell');
+//    }, 1000);
+// }
+
+// // call -> back -> hell 순서로 실행
+// call('kim', function (name) {
+//    console.log(name + '반가워');
+//    back(function (txt) {
+//       console.log(txt + '을 실행했구나');
+//       hell(function (message) {
+//          console.log('여기는 ' + message);
+//       });
+//    });
+// });
+
+
+
+// 풀이 코드
+// callback -> promise 변경
+// ##########################################
+function red() {
+   setTimeout(() => {
+      return new Promise(function (resolve, reject) {
+         let result = document.querySelector('body').style.backgroundColor = 'red';
+         resolve(result)
+      }, 1000)
+   })
+}
+function orange() {
+   setTimeout(() => {
+      return new Promise(function (resolve, reject) {
+         let result = document.querySelector('body').style.backgroundColor = 'orange';
+         resolve(result)
+      }, 1000)
+   })
+}
+function yellow() {
+   setTimeout(() => {
+      return new Promise(function (resolve, reject) {
+         let result = document.querySelector('body').style.backgroundColor = 'yellow';
+         resolve(result)
+      }, 1000)
+   })
+}
+function green() {
+   setTimeout(() => {
+      return new Promise(function (resolve, reject) {
+         let result = document.querySelector('body').style.backgroundColor = 'green';
+         resolve(result)
+      }, 1000)
+   })
+}
+function blue() {
+   setTimeout(() => {
+      return new Promise(function (resolve, reject) {
+         let result = document.querySelector('body').style.backgroundColor = 'blue';
+         resolve(result)
+      }, 1000)
+   })
+}
+
+red()
    .then(function (result) {
-      console.log(('1: ', result));
-      return mul(result)
+      return orange(result)
    })
    .then(function (result) {
-      console.log(('2: ', result));
-      return sub(result)
+      return yellow(result)
    })
    .then(function (result) {
-      console.log(('3: ', result));
+      return green(result)
    })
-   // promise chaining의 예외처리
-   .catch(function (error) {
-      console.log('실패!');
-      console.log(error);
+   .then(function (result) {
+      return blue(result)
    })
 
 
