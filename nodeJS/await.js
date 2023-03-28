@@ -13,7 +13,7 @@ async function 함수명() {
 }
 
 // ############################################################
-// 1초 뒤에 과일 배여열을 출력하는 코드
+// 1초 뒤에 과일 배열을 출력하는 코드
 function fetchFruits() {
    return new Promise(function (resolve, reject) {
       setTimeout(function () {
@@ -72,9 +72,19 @@ function pay() {
 
 //========================================================
 async function exec() {
-   goMart(); //1번 실행
-   await pickDrink(); // 2번 실행
-   pay() //2번이 완료되어야 3번 실행
+   // goMart(); //1번 실행
+   // await pickDrink(); // 2번 실행
+   // pay() //2번이 완료되어야 3번 실행
+   try {
+      const goMart = goMart()
+      const pickDrink = await pickDrink()
+      const pay = pay()
+      console.log(gomart);
+      console.log(pickDrink);
+      console.log(pay);
+   } catch (error) {
+      console.log(error);
+   }
 }
 
 

@@ -7,16 +7,27 @@ function cgBgColor(newColor) {
    })
 }
 
-cgBgColor('red')
-   .then(function () {
-      return cgBgColor('orange');
-   })
-   .then(function () {
-      return cgBgColor('yellow')
-   })
-   .then(function () {
-      return cgBgColor('grenn')
-   })
-   .then(function () {
-      return cgBgColor('blue')
-   })
+// cgBgColor('red')
+//    .then(function () {
+//       return cgBgColor('orange');
+//    })
+//    .then(function () {
+//       return cgBgColor('yellow')
+//    })
+//    .then(function () {
+//       return cgBgColor('grenn')
+//    })
+//    .then(function () {
+//       return cgBgColor('blue')
+//    })
+
+// async/await 이용
+async function exac() {
+   await cgBgColor('red')
+   await cgBgColor('orange')
+   await cgBgColor('yellow')
+   await cgBgColor('grenn')
+   await cgBgColor('blue')
+}
+
+exac()
