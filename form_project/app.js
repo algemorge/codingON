@@ -13,18 +13,28 @@ app.use(express.json()); //json 형태로 데이터를 주고 받음
 app.get('/', (req, res) => {
    //views/index.ejs 파일을 찾아서 응답
    const myTitle = '폼 실습을 합시다~!'
-   res.render("index", { title: myTitle }); // 그림 4번 작업 역할
+   res.render('index', { title: myTitle }); // 그림 4번 작업 역할
 })
 
 app.get('/getForm', function (req, res) {
    // console.log(req); // 뭔가 많이 나옴 -> 그래서 .query를 찍어오는것
    console.log(req.query); //{ id: 'shin', pw: '1234' }
-   res.send('get 요청 성공!!!') // 프론트로 전달 -> 우리에게 보여줌
+   // res.send('get 요청 성공!!!') // 프론트로 전달 -> 우리에게 보여줌
+   res.render('result', {
+      title: 'GET 요청 폼 결과 확인하기',
+      id: req.query.id, //'apple' -> 폼에 입력한 정보대로 결과에 찍기 #~'000'님 환영합니다~ 
+      pw: req.query.pw, //'1234'
+   })
 });
 
 app.post('/postForm', function (req, res) {
    console.log(req.body); //{ id: 'iddldld', pw: '1234' }
-   res.send('post 요청 성공!')
+   // res.send('post 요청 성공!')
+   res.render('result', {
+      title: 'POST 요청 폼 결과 확인하기',
+      id: req.body.id,
+      pw: req.body.pw, //{ id: 'state', pw: '9876' }
+   })
 })
 
 app.listen(PORT, function () {
