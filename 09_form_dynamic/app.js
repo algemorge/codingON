@@ -18,9 +18,21 @@ app.get('/ajax', function (req, res) {
    res.send(req.query)
 })
 
-// 1-2 /ajax post 요청 : body
+// 1-2. /ajax post 요청 : body
 app.post('/ajax', function (req, res) {
    console.log(req.body);
+   res.send(req.body)
+})
+
+// 2-1. /axios Get 요청
+app.get('/axios', function (req, res) {
+   console.log('req.query');
+   res.send(req.query)
+})
+
+// 2-2. /axios Post 요청
+app.post('/axios', function (req, res) {
+   console.log('req.body');
    res.send(req.body)
 })
 
