@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/result2" method="post">
+      <input type="text" name="username" id="username" />
+      <label for="username">이름</label>
+      <fieldset>
+        <legend>성별</legend>
+        <!-- value가 없으면 server에서 ON으로 찍힘 -->
+        <input type="radio" name="male" id="male" value="gender" />
+        <label for="male">남자</label>
+        <input type="radio" name="female" id="female" value="gender" />
+        <label for="female">여자</label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>생년월일</legend>
+        <select name="birthYear" id="year">
+          <% for (let i = 0; i < 50; i++) { %>
+          <option value="<%= 2010 - i %>"><%= 2010 - i %></option>
+          <% } %>
+        </select>
+        <label for="year">년</label>
+        <select name="birthMonth" id="month">
+          <% for (let i = 1; i < 13; i++) { %>
+          <option value="<%= i %>"><%= i %></option>
+          <% } %>
+        </select>
+        <label for="month">월</label>
+        <select name="birthDay" id="day">
+          <% for (let i = 1; i < 31; i++) { %>
+          <option value="<%= i %>"><%= i %></option>
+          <% } %>
+        </select>
+        <label for="day">일</label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>색상</legend>
+        <input type="color" name="myColor" id="myColor" />
+        <label for="myColor">좋아하는 색상</label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>숫자</legend>
+        <input type="number" name="myNum" id="myNum" />
+        <label for="myColor">좋아하는 숫자</label>
+      </fieldset>
+      <br />
+      <button type="submit">제출하기</button>
+    </form>
+    <br />
+    <a href="/">홈으로 이동</a>
+  </body>
+</html>
