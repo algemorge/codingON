@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>동적 폼 전송</title>
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .resultBox {
+        background-color: pink;
+        color: tomato;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>dinamic form</h1>
+
+    <!-- 동적 폼에서는 주소변경이 없기 때문에 action 필요없음 -->
+    <form name="register">
+      <label for="name">이름</label>
+      <!-- name : 폼의 속성 , id : lable 짝궁 -->
+      <input type="text" name="name" id="name" />
+      <br />
+
+      성별
+      <input type="radio" name="gender" value="남자" id="male" />
+      <label for="male">남자</label>
+      <input type="radio" name="gender" value="여자" id="female" />
+      <label for="female">여자</label>
+      <br />
+      <br />
+      <br />
+
+      <!-- 제출하는것이 아니기때문에 type : button -->
+      <button type="button" onclick="ajaxGet()">ajax get 버튼</button>
+      <button type="button" onclick="ajaxPost()">ajax post 버튼</button>
+    </form>
+    <br />
+    <div class="result"></div>
+
+    <!-- body 아래에 js script -->
+    <script>
+      // 버튼 실행결과를 보여줄 요소 선택
+      const resultBox = document.querySelector(".result");
+
+      function ajaxPost() {
+        console.log("click ajaxPost btn!!");
+
+        // name 선택자 : []
+        const form = document.forms["register"];
+
+        // 폼 요소 값 확인하기
+        console.dir(form);
+        console.dir(form.name);
+        console.dir(form.gender);
+        console.dir(form.name.value); //input에 입력한 값
+        console.dir(form.gender.value); // 라디오버튼 선택 값
+
+        // 서버에 전송할 폼 입력값을 저장하는 객체
+        const formInfo = {
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+
+        $.ajax({
+          url: "/ajax",
+          type: "POST",
+          data: formInfo,
+          success: function (data) {
+            // 성공시 출력내용 파라미터에 담기
+            console.log(data); // 성공시 출력내용
+            resultBox.textContent = `post /ajax 요청 완료 ${data.name} 님은 ${data.gender} 이시죠?`;
+            resultBox.style.color = "red";
+          },
+        });
+      }
+
+      // function ajaxGet() {
+      //   // name 선택자 : []
+      //   const form = document.forms["register"];
+
+      //   // 폼 요소 값 확인하기
+      //   console.dir(form);
+      //   console.dir(form.name);
+      //   console.dir(form.gender);
+      //   console.dir(form.name.value);
+      //   console.dir(form.gender.value);
+
+      //   // 서버에 전송할 폼 입력값을 저장하는 객체
+      //   const formInfo = {
+      //     name: form.name.value,
+      //     gender: form.gender.value,
+      //   };
+
+      //   $.ajax({
+      //     url: "/ajax",
+      //     type: "Get",
+      //     data: formInfo,
+      //     success: function (data) {
+      //       console.log(data);
+      //       resultBox.textContent = `Get /ajax 요청 완료 ${data.name} 님은 ${data.gender} 이시죠?`;
+      //       resultBox.style.color = "blue";
+      //     },
+      //   });
+      // }
+    </script>
+  </body>
+</html>
