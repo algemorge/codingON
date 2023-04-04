@@ -40,10 +40,10 @@ const comments = [
 // [Before] MVC 적용 전에는 app.js에서 라우트 정의
 // 단점: 라우터(경로)가 많아진다면? app.js 코드가 길어짐 -> 유지보수성 하락
 
-// GET /
-app.get('/', (req, res) => {
-  res.render('index');
-});
+GET /
+  app.get('/', (req, res) => {
+    res.render('index');
+  });
 
 // GET /comments
 app.get('/comments', (req, res) => {
@@ -64,6 +64,7 @@ app.get('/comment/:id', (req, res) => {
   const commentId = req.params.id; // 댓글 id: url로 들어온 매개변수
   console.log(comments[commentId - 1]);
 
+
   // :id 변수에 숫자가 아닌 값이 온다면 404 페이지
   if (isNaN(commentId)) {
     return res.render('404');
@@ -79,11 +80,11 @@ app.get('/comment/:id', (req, res) => {
 
 // [404 error]
 // 맨 마지막 라우트로 선언: nor 나머지 코드 무시되기 때문!!
-app.get('*', (req, res) => {
-  // res.send('404 Error! 잘못된 주소 형식입니다.');
-  res.render('404');
-});
+// app.get('*', (req, res) => {
+//   // res.send('404 Error! 잘못된 주소 형식입니다.');
+//   res.render('404');
+// });
 
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`http://localhost:${PORT}`);
+// });
