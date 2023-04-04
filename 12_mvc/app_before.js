@@ -1,3 +1,4 @@
+const { query } = require('express');
 const express = require('express');
 const app = express();
 const PORT = 8000;
@@ -5,10 +6,10 @@ const PORT = 8000;
 app.set('view engine', 'ejs');
 app.use('/views', express.static(__dirname + '/views'));
 app.use('/static', express.static(__dirname + '/static'));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); //form전송시 body를 사용하기 위해 
 app.use(express.json());
 
-// (임시) DB로부터 받아온 댓글 목록
+// (임시) DB로부터 받아온 댓글 목록 배열
 const comments = [
   {
     id: 1,
@@ -51,6 +52,11 @@ app.get('/comments', (req, res) => {
 });
 
 // GET /comment/:id
+// GET /comment?id=6
+// req.query { id : 6, name:'홍길동' }
+// GET /comment/:id/:name
+// /comment/6/홍길동
+// req.params { id: 6, name : 홍길동}
 app.get('/comment/:id', (req, res) => {
   console.log(req.params); // 라우트 매개변수에 대한 정보 담겨 있음
   console.log(req.params.id); // id 고유 값
@@ -58,13 +64,13 @@ app.get('/comment/:id', (req, res) => {
   const commentId = req.params.id; // 댓글 id: url로 들어온 매개변수
   console.log(comments[commentId - 1]);
 
-  // 존재하지 않는 댓글 id 접근시 404 페이지
-  if (commentId < 1 || commentId > comments.length) {
+  // :id 변수에 숫자가 아닌 값이 온다면 404 페이지
+  if (isNaN(commentId)) {
     return res.render('404');
   }
 
-  // :id 변수에 숫자가 아닌 값이 온다면 404 페이지
-  if (isNaN(commentId)) {
+  // 존재하지 않는 댓글 id 접근시 404 페이지
+  if (commentId < 1 || commentId > comments.length) {
     return res.render('404');
   }
 
