@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1><%= title %></h1>
+    <ul>
+      <li><%= userInfo.username %></li>
+      <li><%= userInfo.gender %></li>
+      <li>
+        <%= userInfo.birthYear %> - <%= userInfo.birthMonth %> - <%=
+        userInfo.birthDay %>
+      </li>
+      <% if(userInfo.myColor){ %>
+      <li><%= userInfo.myColor %></li>
+      <% } %> <% if(userInfo.myNum){ %>
+      <li><%= userInfo.myNum %></li>
+      <% } %>
+    </ul>
+  </body>
+</html>
