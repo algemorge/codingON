@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .success {
+        color: blue;
+        font-weight: 700;
+      }
+      .error {
+        color: red;
+        font-weight: 700;
+      }
+    </style>
+    <!-- axios 실습을 위해 axios cdn 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <h1>동적 폼 실습</h1>
+    <hr />
+    <h2>실습1. axios get 회원가입</h2>
+    <form name="signup">
+      <label for="username">이름</label>
+      <input type="text" name="username" id="username" required />
+      <fieldset>
+        <legend>성별</legend>
+        <input type="radio" name="gender" id="male" value="남자" />
+        <label for="male">남자</label>
+        <input type="radio" name="gender" id="female" value="여자" />
+        <label for="female">여자</label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>생년월일</legend>
+        <select name="birthYear" id="year">
+          <% for (let i=0; i < 50; i++) { %>
+          <option value="<%= 2010 - i %>"><%= 2010 - i %></option>
+          <% } %>
+        </select>
+        <label for="year">년</label>
+        <select name="birthMonth" id="month">
+          <% for (let i=1; i < 13; i++) { %>
+          <option value="<%= i %>"><%= i %></option>
+          <% } %>
+        </select>
+        <label for="month">월</label>
+        <select name="birthDay" id="day">
+          <% for (let i=1; i < 31; i++) { %>
+          <option value="<%= i %>"><%= i %></option>
+          <% } %>
+        </select>
+        <label for="day">일</label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>관심사</legend>
+        <input type="checkbox" name="hobby" id="travel" />
+        <label for="travel">여행</label>
+        <input type="checkbox" name="hobby" id="hiking" />
+        <label for="hiking">등산</label>
+        <input type="checkbox" name="hobby" id="read" />
+        <label for="read">독서</label>
+      </fieldset>
+      <br />
+      <button type="button" onclick="axiosGet()">회원가입</button>
+    </form>
+    <br />
+    <div class="signup-result"></div>
+    <a href="/" style="font-size: 1rem">다시 입력</a>
+    <br />
+    <hr />
+    <br />
+    <!-- ====================================== -->
+    <h2>실습 2. axios post 로그인</h2>
+    <form name="signin">
+      <label for="userid">아이디</label>
+      <input type="text" required name="userid" id="userid" />
+      <label for="userpw">비밀번호</label>
+      <input type="password" required name="userpw" id="userpw" />
+      <button type="button" onclick="axiosPost()">로그인</button>
+    </form>
+    <div class="signin-result"></div>
+    <br />
+    <a href="/" style="font-size: 1rem">다시 입력</a>
+
+    <!--================== script =================================-->
+    <script>
+      const resultBox = document.querySelector(".signup-result");
+      const resultBox2 = document.querySelector(".signin-result");
+
+      function axiosGet() {
+        console.log("get!!");
+
+        // 폼 선택하기
+        const form = document.forms["signup"];
+
+        // 서버에 전송할 폼 입력값을 객체에 저장
+        const formInfo = {
+          username: form.username.value,
+          gender: form.gender.value,
+          birthYear: form.birthYear.value,
+          birthMonth: form.birthMonth.value,
+          birthDay: form.birthDay.value,
+          hobby: form.hobby.value,
+        };
+        axios({
+          // axios 사용
+          url: "/axios", // app.js 로 보낼 주소
+          method: "GET", // get 방식 선택
+          params: formInfo, // GET요청은 params에 저장!
+        })
+          .then(function (response) {
+            console.log(response); //app.js의 res.send(req.query)를 받아서 실행됨
+            console.log(response.data); // {username : "xxx"}
+            if (formInfo.username === "") {
+              resultBox.textContent = "이름은 필수 값입니다!";
+            } else {
+              resultBox.textContent = `${response.data.username}님 환영합니다! 가입이 완료되었습니다!🎉`;
+              resultBox.classList.add("success");
+            }
+          })
+          .catch(function (error) {
+            console.log(("ERROR!", error));
+          });
+      }
+      // ==========================================
+      function axiosPost() {
+        console.log("post!!");
+        // 폼 선택하기
+        const user = document.forms["signin"];
+        // 서버에 전송할 폼 입력값을 저장
+        const userInfo = {
+          userid: user.userid.value,
+          userpw: user.userpw.value,
+        };
+
+        axios({
+          url: "/axios",
+          method: "POST",
+          data: userInfo,
+        }).then(function (response) {
+          console.log(response);
+          console.log(response.data);
+          if (response.data.isLogin) {
+            resultBox2.textContent = `${response.data.userInfo.userid}님 로그인 성공!`;
+            resultBox2.classList.remove("error");
+            resultBox2.classList.add("success");
+          } else {
+            resultBox2.textContent = `아이디 또는 패스워드 오류!!`;
+            resultBox2.classList.remove("success");
+            resultBox2.classList.add("error");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
