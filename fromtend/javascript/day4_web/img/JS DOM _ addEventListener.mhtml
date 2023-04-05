@@ -1,0 +1,74 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: http://127.0.0.1:55951/day6_eventListener/index.html
+Subject: JS DOM : addEventListener
+Date: Tue, 14 Mar 2023 08:09:47 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--T4ilK8qkntpSR45IHBtEFo3YxNhAIjSSgS6hULz2oN----"
+
+
+------MultipartBoundary--T4ilK8qkntpSR45IHBtEFo3YxNhAIjSSgS6hULz2oN----
+Content-Type: text/html
+Content-ID: <frame-E4AD21DD053CC385B951CD446C14D04D@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://127.0.0.1:55951/day6_eventListener/index.html
+
+<!DOCTYPE html><html lang=3D"en"><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/=
+css" href=3D"cid:css-5e296f07-9a48-41de-b856-129700396212@mhtml.blink" />
+  =20
+   <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+   <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">
+   <title>JS DOM : addEventListener</title>
+  =20
+  =20
+</head>
+
+<body class=3D"vsc-initialized" style=3D"">
+   <div class=3D"btn btn-black">=EB=B2=84=ED=8A=BC1</div>
+   <div class=3D"btn btn-green">=EB=B2=84=ED=8A=BC2</div>
+   <div class=3D"btn btn-blue">=EB=B2=84=ED=8A=BC3</div>
+   <div class=3D"btn btn-red">=EB=B2=84=ED=8A=BC4</div>
+   <div id=3D"container"></div>
+   <div class=3D"btn btn-red pos">=EC=95=88=EB=85=95=ED=95=98=EC=84=B8=EC=
+=9A=94</div>
+   <button>Click Me</button>
+   <input type=3D"text">
+   <br>
+   <hr>
+   <h2>Todo List</h2>
+   <form id=3D"todo-form">
+      <input type=3D"text" name=3D"todo">
+      <button>Add</button>
+   </form>
+
+<!-- Code injected by live-server -->
+
+
+
+</body></html>
+------MultipartBoundary--T4ilK8qkntpSR45IHBtEFo3YxNhAIjSSgS6hULz2oN----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-5e296f07-9a48-41de-b856-129700396212@mhtml.blink
+
+@charset "utf-8";
+
+body { height: 2000px; }
+
+.btn { width: 80px; height: 35px; border-radius: 13px; text-align: center; =
+line-height: 37px; font-weight: 700; margin: 10px; cursor: pointer; }
+
+.btn-black { background-color: rgb(44, 44, 44); color: white; }
+
+.btn-green { background-color: green; color: white; }
+
+.btn-blue { background-color: blue; color: white; }
+
+.btn-red { background-color: red; color: white; }
+
+.pos { width: 150px; height: 150px; position: fixed; bottom: 500px; transit=
+ion: all 2s ease 0s; opacity: 0; display: none; }
+------MultipartBoundary--T4ilK8qkntpSR45IHBtEFo3YxNhAIjSSgS6hULz2oN------

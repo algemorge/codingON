@@ -1,0 +1,60 @@
+/*==================== 전체 선택자 * ====================*/
+/* * {
+   color: grey;
+} */
+
+/*==================== 태그 선택자 ====================*/
+/* li {
+   background-color: aqua;
+   color: orange;
+} */
+
+h3 {
+   background-color: black;
+   color: #fff;
+   text-align: center;
+   letter-spacing: 10px;
+}
+
+/*==================== class 선택자 ====================*/
+.small {
+   background-color: pink;
+   color: blue;
+}
+
+.big {
+   background-color: orange;
+   color: black;
+}
+
+.test1 {
+   background-color: red;
+}
+
+/*==================== id 선택자 ====================*/
+#test {
+   background-color: blueviolet;
+}
+
+/* =================== 실습 ===================== */
+
+body {
+   background-color: gray;
+}
+
+* {
+   color: white;
+}
+
+span {
+   background-color: red;
+}
+
+#first {
+   background-color: blue;
+
+}
+
+.second {
+   background-color: green;
+}

@@ -1,0 +1,55 @@
+.square {
+   display: inline-block;
+   width: 200px;
+   height: 200px;
+   /* cursor: pointer; */
+   border: 1px solid gray;
+}
+
+.d-none {
+   /* display: none; */
+   background-color: red;
+}
+
+.invisible {
+   /* visibility: hidden; */
+   background-color: orangered;
+}
+
+.opacity-0 {
+   /* opacity: 0; */
+   background-color: tomato;
+   opacity: 0.4;
+}
+
+.blue {
+   background-color: blue;
+}
+
+.blue:hover {
+   opacity: 0;
+}
+
+.square img[alt="푸"] {
+   width: 100px;
+}
+
+/* 가로만 적용 - 스크롤생김 */
+.overflow-hidden {
+   overflow-x: hidden;
+}
+
+/* 넘치는게 있을때만 스크롤생김 */
+.overflow-auto {
+   overflow: auto;
+}
+
+/* 콘텐츠가 넘치지 않아도 스크롤 생성 */
+.overflow-scroll {
+   overflow: scroll;
+}
+
+/* 콘텐츠가 넘쳐도 보여줌 . 기본값 */
+.overflow-visible {
+   overflow: visible;
+}

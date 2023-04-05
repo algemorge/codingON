@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>경복궁</title>
+   <!-- swiper -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+      }
+
+      img {
+         width: 100%;
+         position: absolute;
+      }
+
+      .swiper {
+         background-color: pink;
+         width: 100%;
+         height: 100vh;
+      }
+
+      .swiper .swiper-wrapper {
+         width: 100%;
+         height: 100%;
+      }
+
+      .swiper .swiper-wrapper .swiper-slide {
+         width: 100%;
+         height: 100%;
+         background-color: skyblue;
+         border: 1px solid black;
+         font: 700 30px/100vh 'helvetica';
+      }
+
+      .swip1 {
+         display: flex;
+         position: relative;
+         justify-items: center;
+         align-content: center;
+      }
+
+      .p1-text {
+         display: flex;
+         position: relative;
+         color: #fff;
+         /* opacity: 0.7;
+         justify-items: center;
+         align-content: center;
+         font-size: 140px;
+         margin: 0 auto;
+         letter-spacing: 200px; */
+
+      }
+   </style>
+</head>
+
+<body>
+   <div class="swiper">
+      <div class="swiper-wrapper">
+         <div class="swiper-slide swip1"> <img src="./image/gung1.jpg" alt="">
+            <p class="p1-text">HANOK</p>
+         </div>
+         <div class="swiper-slide"> <img src="./image/gung2.jpg" alt=""> slide 2</div>
+         <div class="swiper-slide"> <img src="./image/gung3.jpg" alt=""> slide 3</div>
+         <div class="swiper-slide"> <img src="./image/gung4.jpg" alt=""> slide 4</div>
+      </div>
+      <div class="swiper-scollbar"></div>
+   </div>
+   <script>
+      const swiper = new Swiper('.swiper', {
+         loop: false,
+         direction: 'vertical',
+         mousewheel: true
+      })
+   </script>
+</body>
+
+</html>

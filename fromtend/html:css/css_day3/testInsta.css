@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+/* font-family: 'Satisfy', cursive; */
+
+/* =========================== 폰트 ============================== */
+p {
+   display: inline-block;
+   font-weight: 700;
+   font-size: 40px;
+}
+
+.ins {
+   font-family: 'Satisfy', cursive;
+}
+
+.pro {
+   color: orange;
+}
+
+/* =========================== 원 ============================== */
+
+.container {
+   width: 800px;
+   height: 800px;
+   position: absolute;
+   text-align: center;
+
+}
+
+.out {
+   width: 400px;
+   height: 400px;
+   margin: 10px;
+   border-radius: 50%;
+   border: 13px solid transparent;
+   /* border-image: linear-gradient(217deg, magenta, red, orange, yellow); */
+   background-image: linear-gradient(#fff, #fff),
+      linear-gradient(217deg, rgb(255, 0, 174) 20%, red, orange, yellow);
+   background-origin: border-box;
+   background-clip: content-box, border-box;
+   margin: 0 auto;
+}
+
+img {
+   position: absolute;
+   margin: 0 auto;
+   top: 168px;
+   left: 215px;
+   border-radius: 50%;
+   width: 370px;
+   height: 370px;
+   overflow-x: hidden;
+}

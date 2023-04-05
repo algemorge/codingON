@@ -1,0 +1,62 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>실습1. 이미지 바꾸기</title>
+
+  <!-- TODO: jQuery CDN 추가 -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <h1>이미지 바꾸기</h1>
+
+  <img class="fruit" src="./image/q.jpg" alt="" width="300" height="200" />
+  <br />
+  <button class="btn apple">사과</button>
+  <button class="btn bananas">바나나</button>
+  <button class="btn grapes">포도</button>
+  <button class="btn peaches">복숭아</button>
+
+  <script>
+    // TODO: 조건을 만족하는 jquery 코드 작성
+
+    // function apple() {
+    //   $('.fruit').attr('src', './image/apple.jpg')
+    // }
+    // function bananas() {
+    //   $('.fruit').attr('src', './image/bananas.jpg')
+    // }
+    // function grapes() {
+    //   $('.fruit').attr('src', './image/grapes.jpg')
+    // }
+    // function peach() {
+    //   $('.fruit').attr('src', './image/peaches.jpg')
+    // }
+
+    $(".apple").on("click", function () {
+      $("img").attr("src", "./fruits/apple.jpg");
+    });
+
+    $(".bananas").on("click", function () {
+      $("img").attr("src", "./fruits/bananas.jpg");
+    });
+
+    $(".grapes").on("click", function () {
+      $("img").attr("src", "./fruits/grapes.jpg");
+    });
+
+    $(".peaches").on("click", function () {
+      $("img").attr("src", "./fruits/peaches.jpg");
+    });
+  </script>
+</body>
+
+</html>
