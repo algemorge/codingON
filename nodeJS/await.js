@@ -75,21 +75,15 @@ async function exec() {
    // goMart(); //1번 실행
    // await pickDrink(); // 2번 실행
    // pay() //2번이 완료되어야 3번 실행
-   try {
-      const goMart = goMart()
-      const pickDrink = await pickDrink()
-      const pay = pay()
-      console.log(gomart);
-      console.log(pickDrink);
-      console.log(pay);
-   } catch (error) {
-      console.log(error);
-   }
+   const gomart = await goMart();
+   console.log(gomart);
+   const pickdrink = await pickDrink();
+   console.log(pickdrink);
+   const payn = await pay();
+   console.log(payn);
 }
-
-
 let product;
 let price;
-exac()
+exec();
 
 
