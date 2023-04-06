@@ -17,3 +17,13 @@ exports.getVisitors = (req, res) => {
       res.render('visitor', { data: result });
    });
 };
+
+// (3) POST / visitor.write
+exports.postVisitor = (req, res) => {
+   console.log(req.body);
+   // 인자로 정보, 판단 보냄
+   Visitor.postVisitor(req.body, (result) => {
+      console.log('Cvisitor.js >> ', result); // model 코드에서 데이터를 추가한 결과인 rows.insertId
+      res.send({ id: result, name: req.body.name, comment: req.body.comment })
+   })
+}

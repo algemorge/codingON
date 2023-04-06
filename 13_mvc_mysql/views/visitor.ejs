@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>visitor</title>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
@@ -14,7 +16,7 @@
         <input type="text" id="name" placeholder="사용자 이름" /> <br />
         <input type="text" id="comment" placeholder="방명록" /> <br />
         <div id="button-group">
-          <button type="button">등록</button>
+          <button type="button" onClick="createVisitor()">등록</button>
         </div>
       </fieldset>
     </form>
@@ -47,6 +49,41 @@
         <% } %>
       </tbody>
     </table>
+
+    <!-- script -->
+    <script>
+      const tbody = document.querySelector("tbody");
+
+      // 폼 [등록]버튼 클릭시
+      // - 테이블 데이터 추가
+      function createVisitor() {
+        const form = document.forms["visitor-form"];
+
+        // axios 요청
+        axios({
+          method: "POST",
+          url: "/visitor/write",
+          data: {
+            name: form.name.value,
+            comment: form.comment.value,
+          },
+        }).then((res) => {
+          console.log(res.data);
+          const newVisitor = `
+                <tr id="tr_${res.data.id}">
+                  <td>${res.data.id}</td>
+                  <td>${res.data.name}</td>
+                  <td>${res.data.comment}</td>
+                  <td><button type="button">수정</button></td>
+                  <td><button type="button">삭제</button></td>
+                </tr>`;
+          // insertAdjacentHTML() : 특정 요소에 html 추가 -> 새로고침 없이 댓글 등록을 화면에 띄우기
+          // vs. innerHTML : 내부 코드 덮어 씌움
+          tbody.insertAdjacentHTML("beforeend", newVisitor);
+        });
+      }
+    </script>
+
     <br />
     <br />
     <a href="/">HOME</a>
