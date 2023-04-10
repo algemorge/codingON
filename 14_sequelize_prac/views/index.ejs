@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/b29325fb21.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- style -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 1px solid red;
+      }
+      body {
+        background-color: #d2d2d7;
+        width: 100vw;
+        height: 100vh;
+        /* display: flex; */
+      }
+      .main {
+        box-sizing: border-box;
+      }
+      h2 {
+        text-align: center;
+        position: relative;
+        margin-top: 3rem;
+      }
+      /* hr {
+        margin-top: 1rem;
+        width: 80%;
+        text-align: center;
+        justify-content: center;
+      } */
+      ul {
+        box-sizing: border-box;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: space-evenly;
+        margin-top: 4rem;
+        display: flex;
+      }
+      li {
+        box-sizing: border-box;
+        list-style: none;
+        display: flex;
+      }
+      a {
+        box-sizing: border-box;
+        text-decoration: none;
+        display: block;
+        font-size: 1rem;
+        padding-top: 20px;
+      }
+      i {
+        box-sizing: border-box;
+        font-size: 40px;
+        color: rgb(79, 79, 79);
+        margin-bottom: 10px;
+      }
+      p {
+        box-sizing: border-box;
+        font-size: 9px;
+        font-weight: 300;
+        color: black;
+      }
+      .menu {
+        box-sizing: border-box;
+        width: 6rem;
+        height: 6rem;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+          rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      }
+      .menu:hover {
+        background-color: #f6f6f6;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+          rgba(0, 0, 0, 0.205) 0px 18px 36px -18px inset;
+        transform: translate(-4px, -4px);
+        transition: 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h2>MVC 패턴과 MYSQL 연결</h2>
+      <!-- <hr /> -->
+      <ul>
+        <li>
+          <div class="menu">
+            <a href="/visitor"
+              ><i class="fa-solid fa-message"></i>
+              <p>방명록 남기기</p>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="menu">
+            <a href="/user/signup"
+              ><i class="fa-solid fa-user-plus"></i>
+              <p>회원가입</p>
+            </a>
+          </div>
+        </li>
+
+        <li>
+          <div class="menu">
+            <a href="/user/signin"
+              ><i class="fa-solid fa-right-to-bracket"></i>
+              <p>로그인</p>
+            </a>
+          </div>
+        </li>
+      </ul>
+      <br />
+      <br />
+      <br />
+      <!-- <a href="/404">🚨오류 보기🚨</a> -->
+    </div>
+  </body>
+</html>
