@@ -1,14 +1,23 @@
-import { useState } from 'react';
-import React from 'react';
+import { useState } from "react";
 
-function TestComponent4() {
-   const [display, setDisplay] = useState("block");
+
+
+const TestComponent4 = () => {
+
+   const [visible, setVisible] = useState(true)
+   const toggle = () => {
+      setVisible(!visible)
+      // !true => false
+      // !false => true
+   }
    return (
       <>
-         <h2 style={{ display: display }}>안녕하세요</h2>
-         <button onClick={() => { setDisplay("none") }}>사라져라</button>
+         <button onClick={toggle}>{visible ? '사라져라!' : '보여라!'}</button>
+         <h1>{visible && '안녕하세요'}</h1>
       </>
    );
 };
+
+
 
 export default TestComponent4;
