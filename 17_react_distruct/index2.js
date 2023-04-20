@@ -71,35 +71,7 @@ console.log(newTv1.getPrice())
 newTv1.setPrice(4000)
 console.log(newTv1.getPrice())
 
-console.log('============ KL ============');
 
-class KL {
-   name = '';
-   player = '';
-   rank = 0;
-   color = '';
-   win = 0;
-
-   constructor(name, player, rank, color, win) {
-      this.name = name;
-      this.player = player;
-      this.rank = rank;
-      this.color = color;
-      this.win = win;
-   }
-   getRank() {
-      return this.rank + '위';
-   }
-   setRank(rank) {
-      this.rank = rank;
-   }
-}
-const ssb = new KL('suwon', 'Yeom', 12, 'b-w-r', 4)
-console.log(ssb.getRank());
-ssb.setRank(1);
-console.log(ssb.getRank());
-
-// console.log(ssb);
 
 console.log('=============================');
 // 하위클래스 extends
@@ -134,3 +106,36 @@ console.log(laptop.getPrice());
 // (class) 부모는 자식의 값 사용불가 
 let parent = new Product('tv', 10000)
 console.log(parent.weight);
+
+console.log('============ KL ============');
+
+class KL {
+   name = '';
+   player = '';
+   rank = 0;
+   color = '';
+   win = 0;
+
+   constructor(name, player, rank, color, win) {
+      this.name = name;
+      this.player = player;
+      this.rank = rank;
+      this.color = color;
+      this.win = win;
+   }
+   getRank() {
+      return this.rank + '위';
+   }
+   setRank(rank) {
+      this.rank = rank;
+   }
+}
+const ssb = new KL('suwon', 'Yeom', 12, 'b-w-r', 4)
+console.log(ssb.getRank());
+ssb.setRank(1);
+console.log(ssb.getRank());
+console.log(ssb);
+
+// console.log(ssb);
+
+
