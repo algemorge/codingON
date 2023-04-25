@@ -1,0 +1,121 @@
+// =========================== 0425 prac 1 ===============================
+// color
+// $color-b1: rgb(0, 0, 166);
+// $color-b2: rgb(0, 0, 246);
+// $color-b3: rgb(52, 118, 231);
+// $color-b4: rgb(47, 146, 233);
+// $color-b5: rgb(140, 191, 253);
+// $color-e1: #fff;
+// $color-e2: #000;
+
+// @mixin body($size) {
+//   width: $size;
+//   height: $size;
+// }
+
+// .larva {
+//   .eye {
+//     position: absolute;
+//     border-radius: 50%;
+//     &.eye-white {
+//       width: 40px;
+//       height: 40px;
+//       background-color: $color-e1;
+//       position: relative;
+//       left: 10px;
+//       top: 10px;
+//     }
+
+//     &.eye-black {
+//       width: 20px;
+//       height: 20px;
+//       background-color: $color-e2;
+//       position: relative;
+//       top: 10px;
+//     }
+//   }
+//   .body {
+//     position: absolute;
+//     border-radius: 50%;
+//     @include body(100px);
+//     &.body1 {
+//       background-color: $color-b1;
+//       top: 100px;
+//       left: 100px;
+//     }
+//     &.body2 {
+//       background-color: $color-b2;
+//       top: 150px;
+//       left: 160px;
+//     }
+//     &.body3 {
+//       background-color: $color-b3;
+//       top: 190px;
+//       left: 200px;
+//     }
+//     &.body4 {
+//       background-color: $color-b4;
+//       top: 240px;
+//       left: 220px;
+//     }
+//     &.body5 {
+//       background-color: $color-b5;
+//       top: 280px;
+//       left: 280px;
+//     }
+//   }
+// }
+
+// =========================== 0425 prac 2 ===============================
+//color
+// $color-pink: #ff99ff;
+// $color-yellow: #ffff00;
+// $color-green: #00cc00;
+
+// @mixin circle($size) {
+//   width: $size;
+//   height: $size;
+// }
+
+// @mixin move($name, $for) {
+//   position: relative;
+//   animation: #{$name} 4s infinite;
+//   @keyframes #{$name} {
+//     0% {
+//       transform: translate(0, 0);
+//     }
+//     25% {
+//       transform: translate($for, 0);
+//     }
+//     50% {
+//       transform: translate($for, $for);
+//     }
+//     75% {
+//       transform: translate(0, $for);
+//     }
+//     100% {
+//       transform: translate(0, 0);
+//     }
+//   }
+// }
+
+// .circle {
+//   position: relative;
+//   @include circle(10px);
+//   border-radius: 50%;
+//   .pink {
+//     background-color: $color-pink;
+//     @include move(mpink, 10px);
+//   }
+//   .yellow {
+//     background-color: $color-yellow;
+//     @include move(myellow, 20px);
+//   }
+//   .green {
+//     background-color: $color-green;
+//     @include move(mgreen, 30px);
+//   }
+// }
+
+// =========================== 0425 prac 3 ===============================
+// =========================== 0425 prac 4 ===============================
