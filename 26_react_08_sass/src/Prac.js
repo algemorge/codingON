@@ -20,6 +20,9 @@ const Prac = () => {
          <div className="circle yellow"></div>
          <div className="circle green"></div>
       </div>
+
+      //prac 3
+
    )
 }
 
