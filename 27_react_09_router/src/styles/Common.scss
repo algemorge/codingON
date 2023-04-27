@@ -15,14 +15,14 @@
 .menu-Item {
   margin: 0 8px;
 }
-.prodet {
-  //   display: flex;
-  justify-content: space-around;
-  margin: 0 auto;
-}
 .MainPage {
   background-color: pink;
   min-height: 100vh;
+
+  &.dark {
+    background-color: rgb(80, 80, 80);
+    color: white;
+  }
 }
 
 .NotFound {
@@ -38,4 +38,19 @@
 .ProductPage {
   background-color: skyblue;
   min-height: 100vh;
+}
+
+.ProductItem {
+  background-color: white;
+  width: 80vw;
+  margin: 30px auto 0 auto;
+  list-style: none;
+  padding: 8px;
+  border-radius: 8px;
+
+  &:hover {
+    font-weight: 700;
+    cursor: pointer;
+    transform: translate(-5px, -5px);
+  }
 }
