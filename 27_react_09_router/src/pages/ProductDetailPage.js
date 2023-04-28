@@ -1,4 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
+import '../styles/Common.scss';
+
 
 const ProductDetaulPage = (props) => {
    const { products } = props;
@@ -31,9 +33,8 @@ const ProductDetaulPage = (props) => {
          <button onClick={() => navigate('/')}>홈으로</button>
          <ul>
             <li>판매 번호 : {targetProduct.id}</li>
-            <li>상품명 : {targetProduct.name}</li>
-            <li>판매처 : {targetProduct.email} </li>
-            <li>상세설명 : {targetProduct.body} </li>
+            <li>상품명 : {targetProduct.title}</li>
+            <li className="cover">커버 : <img src={targetProduct.url}></img></li>
          </ul>
       </main>
    )

@@ -6,8 +6,11 @@ const ProductItem = (props) => {
       <Link to={'/Products/' + product.id}>
          <ul className="ProductItem">
             {/* <li>상품명 : {product.name}</li> */}
-            <li>상품명 : {product.name}</li>
-            <li>상세설명 : {product.body.slice(0, 10)}...</li>
+            {/* <li>상품명 : {product.name}</li>
+            <li>상세설명 : {product.body.slice(0, 10)}...</li> */}
+            <img src={product.thumbnailUrl}></img>
+            <li>앨범명 : {product.title}</li>
+            {/* <li>상세설명 : {product.body.slice(0, 10)}...</li> */}
          </ul>
       </Link >
    )
